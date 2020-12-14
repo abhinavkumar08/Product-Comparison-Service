@@ -17,7 +17,7 @@ public class Product implements Serializable {
     private String name;
     private String manufacturer;
     private String title;
-    private String productRating;
+    private double productRating;
     private String description;
 
     private List<Vendor> vendors;
@@ -25,7 +25,7 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(String id, String category, String productName, String manufacturer, String title, String productRating, String description, List<Vendor> vendors) {
+    public Product(String id, String category, String productName, String manufacturer, String title, double productRating, String description, List<Vendor> vendors) {
         this.id = id;
         this.category = category;
         this.name = productName;
@@ -68,11 +68,11 @@ public class Product implements Serializable {
         this.title = title;
     }
 
-    public String getProductRating() {
+    public double getProductRating() {
         return productRating;
     }
 
-    public void setProductRating(String productRating) {
+    public void setProductRating(double productRating) {
         this.productRating = productRating;
     }
 

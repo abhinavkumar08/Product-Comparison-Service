@@ -1,14 +1,15 @@
 package com.product.compare.configuration;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
+import org.springframework.data.mongodb.MongoTransactionManager;
 
 @Configuration
 public class ProductConfiguration {
 
-
-
-//    @Bean
-//    public MongoTemplate getMongoTemplate(){
-//        return  new MongoTemplate()
-//    }
+    @Bean
+    MongoTransactionManager transactionManager(MongoDatabaseFactory dbFactory) {
+        return new MongoTransactionManager(dbFactory);
+    }
 }
