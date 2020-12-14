@@ -22,6 +22,8 @@ public class Product implements Serializable {
 
     private List<Vendor> vendors;
 
+    private String errorInfo;
+
     public Product() {
     }
 
@@ -106,5 +108,13 @@ public class Product implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getErrorInfo() {
+        return errorInfo;
+    }
+
+    public void setErrorInfo(String errorInfo) {
+        this.errorInfo = errorInfo;
     }
 }
