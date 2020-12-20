@@ -25,6 +25,10 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
     @Override
     public Product addProduct(Product product, String category) throws ProductCompareServiceException {
         Product product1 = null;

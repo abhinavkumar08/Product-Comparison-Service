@@ -38,4 +38,13 @@ public class ProductCompareExceptionHandler {
 
     }
 
+
+    @ExceptionHandler(PullDataToImportException.class)
+    public ResponseEntity<?> handleExceptionWhileImportingDataThroughPullMechanism(Exception exception, WebRequest request){
+
+        ErrorResponse response = new ErrorResponse(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity(response, HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
 }

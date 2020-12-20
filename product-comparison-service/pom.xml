@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>product-comparison-service</name>
 	<description>Compares Product and suggest vendors</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>11</java.version>
@@ -51,6 +52,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>product-comparison-service</finalName>
 	</build>
 
 </project>

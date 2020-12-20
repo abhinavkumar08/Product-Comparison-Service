@@ -13,13 +13,8 @@ public final class RequestValidator {
     public static final boolean isValid(List<Product> products) throws RequestValidationException {
 
         if(products==null || products.isEmpty()) throw new RequestValidationException("Invalid request, Product list cannot be empty.");
-
         for(Product product : products){
-            try {
                 isValid(product);
-            }catch (RequestValidationException ex){
-                throw ex;
-            }
         }
         return true;
     }
@@ -39,21 +34,13 @@ public final class RequestValidator {
         if(isNullOrEmpty(name)) throw new RequestValidationException("Name cannot be left blank.");
         if(isNullOrEmpty(manufacturer)) throw new RequestValidationException("Manufacturer cannot be left blank.");
         if(isNullOrEmpty(title)) throw new RequestValidationException("Title cannot be empty.");
-        try {
-            isInValidRating(productRating);
-        }catch (RequestValidationException ex){
-            throw ex;
-        }
+        isInValidRating(productRating);
         if(isNullOrEmpty(description)) throw new RequestValidationException("Descriptoin cannot be left blank.");
 
         //validate vendors
         if(vendors.size()==0) throw new RequestValidationException("Vendor list is empty, Minimum one vendor is required. ");
         for(Vendor vendor : vendors){
-           try {
                isValidVendor(vendor);
-           }catch (RequestValidationException ex){
-               throw ex;
-           }
         }
         return true;
     }
@@ -80,11 +67,7 @@ public final class RequestValidator {
 
        if(isNullOrEmpty(name)) throw new RequestValidationException("Vendor name cannot be left blank.");
        if(isNullOrEmpty(currency)) throw new RequestValidationException("Currency cannot be left blank.");
-       try {
-           isInValidRating(rating);
-       }catch (RequestValidationException ex){
-           throw ex;
-       }
+       isInValidRating(rating);
        if(isNullOrEmpty(type)) throw new RequestValidationException("Vendor Type is not valid, cannot be left blank");
        if(isInValidPrice(price)) throw new RequestValidationException("Price is Invalid, cannot be less than zero.");
 

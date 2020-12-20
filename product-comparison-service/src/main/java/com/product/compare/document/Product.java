@@ -46,14 +46,6 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public String getProductName() {
-        return name;
-    }
-
-    public void setProductName(String productName) {
-        this.name = productName;
-    }
-
     public String getManufacturer() {
         return manufacturer;
     }

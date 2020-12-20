@@ -3,6 +3,7 @@ package com.product.compare.controller;
 import com.product.compare.document.Product;
 import com.product.compare.document.ProductPayload;
 import com.product.compare.exception.ProductCompareServiceException;
+import com.product.compare.exception.PullDataToImportException;
 import com.product.compare.service.ProductService;
 import com.product.compare.validation.RequestValidationException;
 import com.product.compare.validation.RequestValidator;
@@ -39,14 +40,21 @@ public class ProductCompareController {
             LOGGER.error("Invalid Request, Please check the payload and try again " + ex.getMessage());
             throw ex;
         } catch (ProductCompareServiceException e) {
-            LOGGER.error("Error occurred" + e.getMessage());
+            LOGGER.error("Error occurred while adding one product to the inventory " + e.getMessage());
             throw e;
         }
         return new ResponseEntity<>(prod, HttpStatus.CREATED);
     }
 
 
-    @PostMapping("/bulk/import")
+    @GetMapping("/pull/data")
+    public ResponseEntity pullDataFromQueuOrExternalSource() throws PullDataToImportException {
+
+        throw new PullDataToImportException("Method Not Implemented yet, Work in Progress...");
+    }
+
+
+    @PostMapping("/bulk/add")
     public ResponseEntity<List<Product>> bulkImportToInventory(@RequestBody ProductPayload productPayload) throws ProductCompareServiceException, RequestValidationException {
 
         List<Product> productResponse = productPayload.getProductList();
@@ -57,7 +65,7 @@ public class ProductCompareController {
             LOGGER.error("Invalid Request, Please check the payload and try again " + ex.getMessage());
             throw ex;
         } catch (ProductCompareServiceException e) {
-            LOGGER.error("Error occurred" + e.getMessage());
+            LOGGER.error("Error occurred while adding list of products to inverntory" + e.getMessage());
             throw e;
         }
         return new ResponseEntity<>(productResponse, HttpStatus.CREATED);
