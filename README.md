@@ -5,7 +5,7 @@ Steps to run the Project :
 
 1. Extract the zip folder to your local machine.
 
-2.Import the project as Maven Project to Eclipse or Intellij, Make sure the IDE is using JAVA 11.
+2. Import the project as Maven Project to Eclipse or Intellij, Make sure the IDE is using JAVA 11.
  
 3. Build the project using maven package or maven install.
 
