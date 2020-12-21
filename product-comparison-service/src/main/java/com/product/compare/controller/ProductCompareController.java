@@ -33,6 +33,7 @@ public class ProductCompareController {
         Product prod = null;
         try {
             RequestValidator.isValid(product);
+            LOGGER.info("Adding product with name "+product.getName() +" and category "+ product.getCategory() +" to the inverntory");
             String category = product.getCategory().toLowerCase();
             prod = productService.addProduct(product, category);
 
@@ -60,6 +61,7 @@ public class ProductCompareController {
         List<Product> productResponse = productPayload.getProductList();
         try {
             RequestValidator.isValid(productResponse);
+            LOGGER.info("Adding list of products to the inverntory");
             productResponse = productService.bulkAddProducts(productResponse);
         } catch (RequestValidationException ex) {
             LOGGER.error("Invalid Request, Please check the payload and try again " + ex.getMessage());
