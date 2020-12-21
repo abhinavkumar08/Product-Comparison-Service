@@ -44,6 +44,9 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductDetails(String category, String name) throws ProductCompareServiceException {
         Product product1 = null;
         try {
+            //Get the list of products from the repository and sort them based on the price
+        	//and returns to the client so that the cheapest price and the corresponding vendor should be
+        	//displayed first.
             product1 = productRepository.getProduct(name, category);
             List<Vendor> vendorList = product1.getVendors();
             Collections.sort(vendorList, (vendor1, vendor2) -> {
